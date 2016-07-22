@@ -17,7 +17,7 @@ publish:
     username: $$DOCKER_USER
     password: $$DOCKER_PASS
     email: $$DOCKER_EMAIL
-    repo: jgreat/vote-demo-web
+    repo: jgreat/vote-demo-worker
     storage_driver: overlay
   # Publish a Rancher Catalog
   rancher-catalog:

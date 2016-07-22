@@ -1,0 +1,24 @@
+{
+  "name": "demo-worker",
+  "version": "1.0.0",
+  "description": "vote app worker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jgreat/demo-worker.git"
+  },
+  "author": "Jason Greathouse",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/jgreat/demo-worker/issues"
+  },
+  "homepage": "https://github.com/jgreat/demo-worker#readme",
+  "dependencies": {
+    "amqplib": "^0.4.2",
+    "envs": "^0.1.6",
+    "seriate": "^0.7.1"
+  }
+}

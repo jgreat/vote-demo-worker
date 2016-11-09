@@ -13,7 +13,7 @@ cache:
 publish:
   # Publish to DockerHub
   docker:
-    image: jgreat/drone-docker:dind-1.11
+    image: jgreat/drone-docker
     environment:
       - DOCKER_LAUNCH_DEBUG=true
     username: $$DOCKER_USER

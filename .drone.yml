@@ -13,14 +13,14 @@ cache:
 publish:
   # Publish to DockerHub
   docker:
-    image: leankit/drone-docker
+    image: jgreat/drone-docker:dind-1.11
     environment:
       - DOCKER_LAUNCH_DEBUG=true
     username: $$DOCKER_USER
     password: $$DOCKER_PASS
     email: $$DOCKER_EMAIL
     repo: jgreat/vote-demo-worker
-    storage_driver: aufs
+    storage_driver: zfs
 
 deploy:
   # Deploy to Rancher Enviornment via Cowpoke Service

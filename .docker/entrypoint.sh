@@ -10,7 +10,7 @@ if [ "$RANCHER_SERVICE_DISCOVERY" ]; then
   }
 
   env=$( get_service "self/stack" )
-  rabbit=$( get_service "services/rabbit" )
+  rabbitmq=$( get_service "services/rabbitmq" )
   mssql=$( get_service "services/mssql" )
 
   IFS='-' read -ra NAMES <<< $( echo $env | jq -r '.environment_name' )
@@ -24,19 +24,19 @@ if [ "$RANCHER_SERVICE_DISCOVERY" ]; then
   fi
 
   if [ -z "$RABBITMQ_HOST" ]; then
-    export RABBITMQ_HOST=rabbit.rabbit.rancher.internal
+    export RABBITMQ_HOST=rabbitmq.rabbitmq.rancher.internal
   fi
   if [ -z "$RABBITMQ_PORT" ]; then
-    export RABBITMQ_PORT=$( echo $rabbit | jq -r '.labels["io.leankit.service.port.amqp"]' | sed -e 's/\/\(tcp\|udp\)//' )
+    export RABBITMQ_PORT=$( echo $rabbitmq | jq -r '.labels["io.leankit.service.port.amqp"]' | sed -e 's/\/\(tcp\|udp\)//' )
   fi
   if [ -z "$RABBITMQ_USERNAME" ]; then
-    export RABBITMQ_USERNAME=$( echo $rabbit | jq -r '.labels["io.leankit.service.username"]' )
+    export RABBITMQ_USERNAME=$( echo $rabbitmq | jq -r '.labels["io.leankit.service.username"]' )
   fi
   if [ -z "$RABBITMQ_PASSWORD" ]; then
-    export RABBITMQ_PASSWORD=$( echo $rabbit | jq -r '.labels["io.leankit.service.password"]' )
+    export RABBITMQ_PASSWORD=$( echo $rabbitmq | jq -r '.labels["io.leankit.service.password"]' )
   fi
   if [ -z "$RABBITMQ_VHOST" ]; then
-    export RABBITMQ_VHOST=$( echo $rabbit | jq -r '.labels["io.leankit.service.vhost"]' )
+    export RABBITMQ_VHOST=$( echo $rabbitmq | jq -r '.labels["io.leankit.service.vhost"]' )
   fi
 
   if [ -z "$SQL_HOST" ]; then

@@ -18,25 +18,18 @@ publish:
     password: $$DOCKER_PASS
     email: $$DOCKER_EMAIL
     repo: jgreat/vote-demo-worker
-    storage_driver: overlay
-  # Publish a Rancher Catalog
-  rancher-catalog:
-    image: jgreat/drone-rancher-catalog
+
+deploy:
+  # Deploy to Rancher Enviornment via Cowpoke Service
+  cowpoke:
+    image: leankit/drone-cowpoke:logging
     docker_username: $$DOCKER_USER
     docker_password: $$DOCKER_PASS
     docker_repo: jgreat/vote-demo-worker
     catalog_repo: jgreat/rancher-vote-demo-worker
     github_token: $$GITHUB_TOKEN
-    github_user: jgreat
-    github_email: jgreat@jgreat.me
-
-deploy:
-  # Deploy to Rancher Enviornment via Cowpoke Service
-  cowpoke:
-    image: leankit/drone-cowpoke:catalog-upgrade
-    cowpoke_url: https://cowpoke.leankitdev.com
-    cowpoke_port: 8000
-    cowpoke_api_key: $$COWPOKE_API_KEY
-    cowpoke_catalog: rancher-vote-demo-worker
-    cowpoke_catalog_upgrade: 'true'
-    docker_owner: jgreat
+    github_user: $$GITHUB_USER
+    github_email: $$GITHUB_EMAIL
+    cowpoke_url: https://cowpoke.leankitdev.com:9300
+    rancher_catalog_name: vote-demo-worker
+    bearer_token: $$COWPOKE_API_KEY

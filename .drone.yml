@@ -26,7 +26,7 @@ publish:
 deploy:
   # Deploy to Rancher Enviornment via Cowpoke Service
   cowpoke:
-    image: leankit/drone-cowpoke:logging
+    image: leankit/drone-cowpoke
     docker_username: $$DOCKER_USER
     docker_password: $$DOCKER_PASS
     docker_repo: jgreat/vote-demo-worker

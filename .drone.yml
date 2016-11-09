@@ -18,6 +18,7 @@ publish:
     password: $$DOCKER_PASS
     email: $$DOCKER_EMAIL
     repo: jgreat/vote-demo-worker
+    storage_driver: zfs
 
 deploy:
   # Deploy to Rancher Enviornment via Cowpoke Service

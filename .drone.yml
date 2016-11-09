@@ -11,17 +11,14 @@ cache:
     - .git
 
 publish:
-  # Publish to DockerHub
+  # Publish to DockerHub - Custom drone-docker, runs on "remote" docker instance.
   docker:
-    image: jgreat/drone-docker:dind-1.11
+    image: jgreat/drone-docker
     docker_host: tcp://cowpoke.leankitdev.com:2375
-    environment:
-      - DOCKER_LAUNCH_DEBUG=true
     username: $$DOCKER_USER
     password: $$DOCKER_PASS
     email: $$DOCKER_EMAIL
     repo: jgreat/vote-demo-worker
-    # storage_driver: zfs
 
 deploy:
   # Deploy to Rancher Enviornment via Cowpoke Service

@@ -1,9 +1,8 @@
 var amqp = require('amqplib');
 var { Pool, Client } = require('pg');
-var envs = require('envs');
 var util = require('util');
 
-var debug = envs('DEBUG');
+var debug = process.env.DEBUG;
 var config = {
   pg: {
     host: process.env.POSTGRES_HOST || 'postgresql',

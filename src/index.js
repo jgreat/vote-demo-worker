@@ -1,24 +1,23 @@
 var amqp = require('amqplib');
 var { Pool, Client } = require('pg');
-var envs = require('envs');
 var util = require('util');
 
-var debug = envs('DEBUG');
+var debug = process.env.DEBUG;
 var config = {
   pg: {
-    host: envs('POSTGRES_HOST', 'postgresql'),
-    user: envs('POSTGRES_USER', 'vote'),
-    password: envs('POSTGRES_PASSWORD', 'vote'),
-    database: envs('POSTGRES_DB', 'vote'),
-    port: envs('POSTGRES_DB_PORT', '5432')
+    host: process.env.POSTGRES_HOST || 'postgresql',
+    user: process.env.POSTGRES_USER || 'vote',
+    password: process.env.POSTGRES_PASSWORD || 'vote',
+    database: process.env.POSTGRES_DB || 'vote',
+    port: process.env.POSTGRES_DB_PORT || 5432
   },
   rabbitmq: {
-    host: envs('RABBITMQ_HOST', 'rabbitmq'),
-    username: envs('RABBITMQ_USERNAME', 'guest'),
-    password: envs('RABBITMQ_PASSWORD', 'guest'),
-    port: envs('RABBITMQ_AMQP_PORT', '5672'),
-    vhost: envs('RABBITMQ_VHOST', '%2f'),
-    queue: envs('RABBITMQ_QUEUE', 'vote')
+    host: process.env.RABBITMQ_HOST || 'rabbitmq',
+    username: process.env.RABBITMQ_USERNAME || 'guest',
+    password: process.env.RABBITMQ_PASSWORD || 'guest',
+    port: process.env.RABBITMQ_AMQP_PORT || 5672,
+    vhost: process.env.RABBITMQ_VHOST || '%2f',
+    queue: process.env.RABBITMQ_QUEUE || 'vote'
   }
 };
 

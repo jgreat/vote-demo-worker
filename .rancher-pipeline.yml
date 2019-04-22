@@ -33,7 +33,7 @@ stages:
       image: jgreat/rancher-pipeline-deploy:0.0.2
       shellScript: rancher-pipeline-deploy
     env:
-      RANCHER_URL: https://rancher.eng.rancher.space
+      RANCHER_URL: https://rancher.azure.eng.rancher.space
       RANCHER_CATALOG_NAME: vote-demo-worker
     envFrom:
     - sourceName: chart-creds

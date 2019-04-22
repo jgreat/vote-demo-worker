@@ -1,6 +1,6 @@
 {
     "name": "vote-demo-worker",
-    "version": "2.0.1",
+    "version": "2.0.4",
     "description": "vote app worker",
     "main": "index.js",
     "scripts": {

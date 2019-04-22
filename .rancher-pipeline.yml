@@ -19,7 +19,7 @@ stages:
       shellScript: publish-chart.sh
     env:
       HELM_REPO_NAME: vote-demo-worker
-      HELM_REPO_URL: https://vote-demo-charts.eng.rancher.space/vote-demo-worker/
+      HELM_REPO_URL: https://vote-demo-charts.azure.eng.rancher.space/vote-demo-worker/
     envFrom:
     - sourceName: chart-creds
       sourceKey: BASIC_AUTH_PASS
@@ -33,7 +33,7 @@ stages:
       image: jgreat/rancher-pipeline-deploy:0.0.2
       shellScript: rancher-pipeline-deploy
     env:
-      RANCHER_URL: https://jgreat-vote-rancher.eng.rancher.space
+      RANCHER_URL: https://rancher.eng.rancher.space
       RANCHER_CATALOG_NAME: vote-demo-worker
     envFrom:
     - sourceName: chart-creds
